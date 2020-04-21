@@ -20,7 +20,7 @@ namespace AnagramTask
         /// </summary>
         /// <param name="candidates">A list of possible anagrams</param>
         /// <returns>The correct sublist of anagrams.</returns>
-        /// <exception cref="ArgumentNullException">If candidates list is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when candidates list is null.</exception>
         public string[] FindAnagrams(string[] candidates)
         {
             throw new NotImplementedException("You need to implement this function.");
