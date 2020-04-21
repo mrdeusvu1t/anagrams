@@ -10,7 +10,7 @@ namespace AnagramTask.Tests
         [TestCase("listen", new[] {"enlists", "google", "inlets", "banana"}, ExpectedResult = new[] {"inlets"})]
         [TestCase("allergy", new[] {"gallery", "ballerina", "regally", "clergy", "largely", "leading"},
             ExpectedResult = new[] {"gallery", "regally", "largely"})]
-        public string[] Detects_Anagrams(string word, string[] candidates)
+        public string[] FindAnagrams_Detects_Anagrams(string word, string[] candidates)
         {
             var sut = new Anagram(word);
             return sut.FindAnagrams(candidates);
@@ -19,7 +19,7 @@ namespace AnagramTask.Tests
         [TestCase("diaper", new[] {"hello", "world", "zombies", "pants"}, ExpectedResult = new string[] { })]
         [TestCase("good", new[] {"dog", "goody"}, ExpectedResult = new string[] { })]
         [TestCase("mass", new[] {"last"}, ExpectedResult = new string[] { })]
-        public string[] Does_Not_Detect_Non_Anagrams(string word, string[] candidates)
+        public string[] FindAnagrams_Does_Not_Detect_Non_Anagrams(string word, string[] candidates)
         {
             var sut = new Anagram(word);
             return sut.FindAnagrams(candidates);
@@ -27,14 +27,14 @@ namespace AnagramTask.Tests
         
         [TestCase("Orchestra", new[] {"cashier", "Carthorse", "radishes"}, ExpectedResult = new[] {"Carthorse"})]
         [TestCase("orchestra", new[] {"caregivers", "Carthorse", "radishes"}, ExpectedResult = new[] {"Carthorse"})]
-        public string[] Detects_Anagrams_Case_Insensitively(string word, string[] candidates)
+        public string[] FindAnagrams_Detects_Anagrams_Case_Insensitively(string word, string[] candidates)
         {
             var sut = new Anagram(word);
             return sut.FindAnagrams(candidates);
         }
 
         [Test]
-        public void Does_Not_Detect_A_Anagram_If_The_Original_Word_Is_Repeated()
+        public void FindAnagrams_Does_Not_Detect_A_Anagram_If_The_Original_Word_Is_Repeated()
         {
             var candidates = new[] {"go Go GO"};
             var sut = new Anagram("go");
@@ -42,7 +42,7 @@ namespace AnagramTask.Tests
         }
 
         [Test]
-        public void Anagrams_Must_Use_All_Letters_Exactly_Once()
+        public void FindAnagrams_Anagrams_Must_Use_All_Letters_Exactly_Once()
         {
             var candidates = new[] {"patter"};
             var sut = new Anagram("tapper");
@@ -50,7 +50,7 @@ namespace AnagramTask.Tests
         }
         
         [Test]
-        public void Words_Are_Not_Anagrams_Of_Themselves_Case_Insensitive_()
+        public void FindAnagrams_Words_Are_Not_Anagrams_Of_Themselves_Case_Insensitive()
         {
             var candidates = new[] {"BANANA", "Banana", "banana"};
             var sut = new Anagram("BANANA");
@@ -58,19 +58,19 @@ namespace AnagramTask.Tests
         }
         
         [Test]
-        public static void Throw_ArgumentException_If_Word_Is_Empty()
+        public static void FindAnagrams_Throw_ArgumentException_If_Word_Is_Empty()
         {
             Assert.Throws<ArgumentException>(() => new Anagram(string.Empty), "The word can not be empty.");
         }
         
         [Test]
-        public static void Throw_ArgumentNullException_If_Word_Is_Null()
+        public static void FindAnagrams_Throw_ArgumentNullException_If_Word_Is_Null()
         {
             Assert.Throws<ArgumentNullException>(() => new Anagram(null), "The word can not be null.");
         }
         
         [Test]
-        public static void Throw_ArgumentException_If_Candidates_Is_Null()
+        public static void FindAnagrams_Throw_ArgumentException_If_Candidates_Is_Null()
         {
             var sut = new Anagram("banana");
             Assert.Throws<ArgumentNullException>(() => sut.FindAnagrams(null), "The list of words can not be null.");
