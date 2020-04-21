@@ -8,8 +8,8 @@ namespace AnagramTask
         /// Initialize Anagram object.
         /// </summary>
         /// <param name="sourceWord">Source word.</param>
-        /// <exception cref="ArgumentNullException">If source word is null.</exception>
-        /// <exception cref="ArgumentException">If source word is empty.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when source word is null.</exception>
+        /// <exception cref="ArgumentException">Thrown when  source word is empty.</exception>
         public Anagram(string sourceWord)
         {
             throw new NotImplementedException("You need to implement this function.");
