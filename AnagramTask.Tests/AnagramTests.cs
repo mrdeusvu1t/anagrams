@@ -60,20 +60,20 @@ namespace AnagramTask.Tests
         [Test]
         public static void FindAnagrams_Throw_ArgumentException_If_Word_Is_Empty()
         {
-            Assert.Throws<ArgumentException>(() => new Anagram(string.Empty), "The word can not be empty.");
+            Assert.Throws<ArgumentException>(() => new Anagram(string.Empty), "The word cannot be empty.");
         }
         
         [Test]
         public static void FindAnagrams_Throw_ArgumentNullException_If_Word_Is_Null()
         {
-            Assert.Throws<ArgumentNullException>(() => new Anagram(null), "The word can not be null.");
+            Assert.Throws<ArgumentNullException>(() => new Anagram(null), "The word cannot be null.");
         }
         
         [Test]
         public static void FindAnagrams_Throw_ArgumentException_If_Candidates_Is_Null()
         {
             var sut = new Anagram("banana");
-            Assert.Throws<ArgumentNullException>(() => sut.FindAnagrams(null), "The list of words can not be null.");
+            Assert.Throws<ArgumentNullException>(() => sut.FindAnagrams(null), "The list of words cannot be null.");
         }
     }
 }
