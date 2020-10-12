@@ -4,6 +4,7 @@ using NUnit.Framework;
 
 namespace AnagramTask.Tests
 {
+    [TestFixture]
     public class AnagramTests
     {
         [TestCase("master", new[] {"stream", "pigeon", "maters"}, ExpectedResult = new[] {"stream", "maters"})]
@@ -15,7 +16,7 @@ namespace AnagramTask.Tests
             var sut = new Anagram(word);
             return sut.FindAnagrams(candidates);
         }
-        
+
         [TestCase("diaper", new[] {"hello", "world", "zombies", "pants"}, ExpectedResult = new string[] { })]
         [TestCase("good", new[] {"dog", "goody"}, ExpectedResult = new string[] { })]
         [TestCase("mass", new[] {"last"}, ExpectedResult = new string[] { })]
@@ -24,7 +25,7 @@ namespace AnagramTask.Tests
             var sut = new Anagram(word);
             return sut.FindAnagrams(candidates);
         }
-        
+
         [TestCase("Orchestra", new[] {"cashier", "Carthorse", "radishes"}, ExpectedResult = new[] {"Carthorse"})]
         [TestCase("orchestra", new[] {"caregivers", "Carthorse", "radishes"}, ExpectedResult = new[] {"Carthorse"})]
         public string[] FindAnagrams_Detects_Anagrams_Case_Insensitively(string word, string[] candidates)
@@ -48,7 +49,7 @@ namespace AnagramTask.Tests
             var sut = new Anagram("tapper");
             Assert.IsEmpty(sut.FindAnagrams(candidates));
         }
-        
+
         [Test]
         public void FindAnagrams_Words_Are_Not_Anagrams_Of_Themselves_Case_Insensitive()
         {
@@ -56,19 +57,19 @@ namespace AnagramTask.Tests
             var sut = new Anagram("BANANA");
             Assert.IsEmpty(sut.FindAnagrams(candidates));
         }
-        
+
         [Test]
         public static void FindAnagrams_Throw_ArgumentException_If_Word_Is_Empty()
         {
             Assert.Throws<ArgumentException>(() => new Anagram(string.Empty), "The word cannot be empty.");
         }
-        
+
         [Test]
         public static void FindAnagrams_Throw_ArgumentNullException_If_Word_Is_Null()
         {
             Assert.Throws<ArgumentNullException>(() => new Anagram(null), "The word cannot be null.");
         }
-        
+
         [Test]
         public static void FindAnagrams_Throw_ArgumentException_If_Candidates_Is_Null()
         {
