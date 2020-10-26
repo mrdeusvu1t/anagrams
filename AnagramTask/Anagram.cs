@@ -18,8 +18,8 @@ namespace AnagramTask
         /// <summary>
         /// From the list of possible anagrams selects the correct subset.
         /// </summary>
-        /// <param name="candidates">A list of possible anagrams</param>
-        /// <returns>The correct sublist of anagrams.</returns>
+        /// <param name="candidates">A list of possible anagrams.</param>
+        /// <returns>The correct sublist of anagrams.</returns
         /// <exception cref="ArgumentNullException">Thrown when candidates list is null.</exception>
         public string[] FindAnagrams(string[] candidates)
         {
