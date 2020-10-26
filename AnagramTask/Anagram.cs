@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 
 namespace AnagramTask
 {
     public class Anagram
     {
         /// <summary>
-        /// Initialize Anagram object.
+        /// Initializes a new instance of the <see cref="Anagram"/> class.
         /// </summary>
         /// <param name="sourceWord">Source word.</param>
         /// <exception cref="ArgumentNullException">Thrown when source word is null.</exception>
