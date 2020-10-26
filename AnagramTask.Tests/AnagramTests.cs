@@ -2,6 +2,8 @@ using System;
 using AnagramTask;
 using NUnit.Framework;
 
+#pragma warning disable CA1707
+
 namespace AnagramTask.Tests
 {
     [TestFixture]
